@@ -8,30 +8,33 @@
  limit 1
 ```
  
- # Q2: Which countries have the most Invoices?
-
+ **Q2: Which countries have the most Invoices?**
+```sql
 select billing_country, count(invoice_id) as no_of_Invoice
 from invoice
 group by billing_country
 order by no_of_invoice desc
 limit 1
+```
 
-# Q3: What are top 3 values of total invoice?
-
+**Q3: What are top 3 values of total invoice?**
+```sql
 select round(total,2) as total from invoice
 order by total desc
 limit 3
+```
 
-/* Q4: Which city has the best customers?
+**Q4: Which city has the best customers?
 We would like to throw a promotional Music Festival in the city we made the most money. 
 Write a query that returns one city that has the highest sum of invoice totals. 
-Return both the city name & sum of all invoice totals. */
-
+Return both the city name & sum of all invoice totals.**
+```sql
 select billing_city, round(sum(total),2) as total_revenue
 from invoice
 group by billing_city
 order by total_revenue desc
 limit 1
+```
 
 /* Q5: Who is the best customer? The customer who has spent the most money will be declared the best customer. 
 Write a query that returns the person who has spent the most money.*/
